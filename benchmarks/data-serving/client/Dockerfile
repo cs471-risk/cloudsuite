@@ -1,4 +1,4 @@
-FROM cloudsuite/cassandra:4.1.0
+FROM cassandra
 
 ENV YCSB_VERSION 0.17.0
 

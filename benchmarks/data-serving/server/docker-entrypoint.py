@@ -71,6 +71,9 @@ with open(f"{CASSANDRA_CONFIG}/cassandra.yaml", "w") as f:
 with open(f"{CASSANDRA_CONFIG}/jvm-server.options") as f:
     jvm_options = f.readlines()
 
+jvm_options.append("-XX:+IgnoreUnrecognizedVMOptions\n")
+jvm_options.append("-Djava.security.manager=allow\n")
+
 if args.heap_size:  
     # Clean any old settings
     for idx, l in enumerate(jvm_options):

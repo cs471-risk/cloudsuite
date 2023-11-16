@@ -1,4 +1,4 @@
-FROM cloudsuite/cassandra:4.1.0
+FROM cassandra-server
 
 RUN apt update && apt install -y --no-install-recommends python3-yaml && rm -rf /var/lib/apt/lists/*
 
