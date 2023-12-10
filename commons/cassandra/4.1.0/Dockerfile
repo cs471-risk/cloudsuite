@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM cloudsuite/base-os:ubuntu
 
 # Set environment variables for Java and Cassandra
 ENV JAVA_HOME /opt/java
@@ -11,7 +11,7 @@ ENV PATH $JAVA_HOME/bin:$CASSANDRA_HOME/bin:$PATH
 RUN apt-get update && apt-get install -y wget tar
 
 # Download and install Adoptium JDK 21
-RUN wget -O jdk.tar.gz https://api.adoptium.net/v3/binary/latest/21/ea/linux/x64/jdk/hotspot/normal/adoptium \
+RUN wget -O jdk.tar.gz https://api.adoptium.net/v3/binary/latest/21/ea/linux/riscv64/jdk/hotspot/normal/adoptium \ 
     && mkdir -p "$JAVA_HOME" \
     && tar --extract --file jdk.tar.gz --directory "$JAVA_HOME" --strip-components 1 \
     && rm jdk.tar.gz
